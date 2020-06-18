@@ -1,0 +1,20 @@
+
+
+<h1>{{ larderName }} / {{containerName}} </h1>
+<ng-container *ngIf="currentLarderContainerItem">
+  <mat-form-field class="example-full-width">
+      <mat-label>Nazwa Itemu z {{ larderName }} </mat-label>
+      <input matInput placeholder="Nazwa Itemu" [(ngModel)]="currentLarderContainerItem.item.name">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Opis Itemu z {{ larderName }} </mat-label>
+    <input matInput placeholder="Description Itemu" [(ngModel)]="currentLarderContainerItem.item.description">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Ilość Itemu z {{ larderName }} </mat-label>
+    <input matInput placeholder="Ilość " [(ngModel)]="currentLarderContainerItem.quantity">
+  </mat-form-field>
+  <button mat-raised-button color="warn" (click)="save()">Zapisz</button>
+</ng-container>
+
+

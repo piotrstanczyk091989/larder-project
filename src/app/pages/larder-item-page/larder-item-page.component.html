@@ -1,0 +1,19 @@
+
+<h1>{{ larderName }} </h1>
+<ng-container *ngIf="currentLaderItem">
+  <mat-form-field class="example-full-width">
+      <mat-label>Nazwa Itemu z {{ larderName }} </mat-label>
+      <input matInput placeholder="Nazwa Itemu" [(ngModel)]="currentLaderItem.item.name">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Opis Itemu z {{ larderName }} </mat-label>
+    <input matInput placeholder="Description Itemu" [(ngModel)]="currentLaderItem.item.description">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Ilość Itemu z {{ larderName }} </mat-label>
+    <input matInput placeholder="Ilość " [(ngModel)]="currentLaderItem.quantity">
+  </mat-form-field>
+  <button mat-raised-button color="warn"(click)="save()">Zapisz</button>
+</ng-container>
+
+

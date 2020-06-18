@@ -1,0 +1,25 @@
+<ng-container *ngIf="larder">
+    <h1>{{ larder.name }}</h1>
+    <mat-list>
+        <div mat-subheader>Kontenery
+            <button mat-mini-fab color="warn" routerLink="container">
+                <mat-icon>plus_one</mat-icon>
+            </button>
+        </div>
+        <mat-list-item *ngFor="let container of larder.containers" [routerLink]="['container', container.name]">
+            <mat-icon mat-list-icon>folder</mat-icon>
+            <div mat-line>{{container.name}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <div mat-subheader>Przedmioty
+            <button mat-mini-fab color="warn"  routerLink="item">
+                <mat-icon>plus_one</mat-icon>
+            </button>
+        </div>
+        <mat-list-item *ngFor="let laderItem of larder.items" [routerLink]="['item', laderItem.item.name]">
+            <mat-icon mat-list-icon>note</mat-icon>
+            <div mat-line>{{laderItem.item.name}}</div>
+            <div mat-line>{{laderItem.quantity}}</div>
+        </mat-list-item>
+    </mat-list>
+</ng-container>
