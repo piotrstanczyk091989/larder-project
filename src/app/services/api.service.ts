@@ -49,19 +49,42 @@ export class ApiService {
                 item:{name: "Woda Niegazowana", description: "Żywiec"},
                 expirationDate: new Date(),
                 quantity: 12
-              }
+              },
+              {
+                id: 8,
+                item:{name: "Dżem", description: "Łowicz"},
+                expirationDate: new Date(),
+                quantity: 2
+              },
+              {
+                id: 9,
+                item:{name: "Mleko", description: "Łaciate"},
+                expirationDate: new Date(),
+                quantity: 4
+              },
              ]
            },
            {
             name: 'Kontener 2',
             items: [
-
               {
                 id: 4,
                 item:{name: "Woda Niegazowana", description: "Żywiec"},
                 expirationDate: new Date(),
                 quantity: 12
-              }
+              },
+              {
+                id: 9,
+                item:{name: "Mleko", description: "Łaciate"},
+                expirationDate: new Date(),
+                quantity: 4
+              },
+              {
+                id: 8,
+                item:{name: "Dżem", description: "Łowicz"},
+                expirationDate: new Date(),
+                quantity: 2
+              },
 
             ]
           }
@@ -78,7 +101,13 @@ export class ApiService {
            item:{name: "Masło Polskie", description: "Mlekovita"},
            manufactureDate: new Date(),
            quantity: 2
-         }
+         },
+         {
+          id: 10,
+          item:{name: "Kasza Gryczana", description: "Risana"},
+          manufactureDate: new Date(),
+          quantity: 2
+        }
          ]
         },
         {
@@ -86,7 +115,33 @@ export class ApiService {
          "containers": [
           {
             name: 'Kontener 1',
-            items: []
+            items: [
+              {
+                id: 4,
+                item:{name: "Woda Niegazowana", description: "Żywiec"},
+                expirationDate: new Date(),
+                quantity: 12
+              },
+              {
+                id: 5,
+                item:{name: "Makaron", description: "Lubella"},
+                expirationDate: new Date(),
+                quantity: 3
+              },
+              {
+                id: 6,
+                item:{name: "Ryż", description: "Kupiec"},
+                expirationDate: new Date(),
+                quantity: 5
+              },
+              {
+                id: 7,
+                item:{name: "Banany", description: ""},
+                expirationDate: new Date(),
+                quantity: 5
+              },
+
+            ]
           }
          ],
          "items": []
@@ -100,6 +155,12 @@ export class ApiService {
     {name: "Masło Polskie", description: "Mlekovita"},
     {name: "Pepsi", description: "2L"},
     {name: "Woda Niegazowana", description: "Żywiec"},
+    {name: "Makaron", description: "Lubella"},
+    {name: "Ryż", description: "Kupiec"},
+    {name: "Banany", description: ""},
+    {name: "Dżem", description: "Łowicz"},
+    {name: "Mleko", description: "Łaciate"},
+    {name: "Kasza Gryczana", description: "Risana"},
     ]) as Observable<Item[]>;
   }
 
