@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
-import { Larder } from 'src/app/models/larder';
-import { LarderService } from 'src/app/services/larder.service';
+import { ApiService } from '../../services/api.service';
+import { Larder } from '../../models/larder';
+import { LarderService } from '../../services/larder.service';
 import { Router } from '@angular/router';
 
 @Component({
