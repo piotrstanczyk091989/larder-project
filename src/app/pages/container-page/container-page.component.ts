@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Container } from 'src/app/models/container';
-import { LarderService } from 'src/app/services/larder.service';
+import { Container } from '../../models/container';
+import { LarderService } from '../../services/larder.service';
 import { Subscription } from 'rxjs';
 
 @Component({
