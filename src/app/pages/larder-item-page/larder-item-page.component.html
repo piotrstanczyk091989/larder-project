@@ -1,7 +1,6 @@
-
 <h1>{{ larderName }} </h1>
-<ng-container *ngIf="currentLaderItem">
-
+<ng-container *ngIf="currentLaderItem; then infoItem; else noItem"></ng-container>
+<ng-template #infoItem>
   <mat-form-field>
     <mat-label>Nazwa Przedmiotu</mat-label>
     <select matNativeControl required [(ngModel)]="currentLaderItem.item.name" name="Przedmiotu">
@@ -33,6 +32,7 @@
   </mat-form-field>
 
   <button mat-raised-button color="warn" (click)="save()">Zapisz</button>
-</ng-container>
+</ng-template>
+<ng-template #noItem></ng-template>
 
 

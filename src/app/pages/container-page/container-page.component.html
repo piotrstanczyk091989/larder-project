@@ -1,15 +1,16 @@
-<ng-container *ngIf="currentContainer">
+<ng-container *ngIf="currentContainer; then containerInfo; else noContainer"></ng-container>
+<ng-template #containerInfo>
     <h1>{{ larderName }} /
         <mat-form-field class="example-full-width">
             <mat-label>Nazwa Kontenera</mat-label>
             <input matInput placeholder="Nazwa Kontenera" [(ngModel)]="currentContainer.name">
         </mat-form-field>
     </h1>
-    <ng-container *ngIf="showErrorMessage">
+    <div *ngIf="showErrorMessage">
         <mat-divider></mat-divider>
             Nie udało się zapisać kontenera.
         <mat-divider></mat-divider>
-    </ng-container>
+    </div>
     <mat-list>
         <div *ngIf="newContenerFlag" mat-subheader>Przedmioty
             <button mat-mini-fab color="warn" routerLink="itemName">
@@ -24,4 +25,8 @@
         </mat-list-item>
     </mat-list>
     <button mat-raised-button color="warn" (click)="save()">Zapisz</button>
-</ng-container>
+</ng-template>
+<ng-template #noContainer>
+  Brak Kontenera
+</ng-template>
+

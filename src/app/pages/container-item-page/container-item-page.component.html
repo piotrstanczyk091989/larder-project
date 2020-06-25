@@ -1,8 +1,9 @@
 
 
 <h1>{{ larderName }} / {{containerName}} </h1>
-<ng-container *ngIf="currentLarderContainerItem">
 
+<ng-container *ngIf="currentLarderContainerItem; then infoItem; else noItem"></ng-container>
+<ng-template #infoItem>
   <mat-form-field>
     <mat-label>Nazwa Przedmiotu</mat-label>
     <select matNativeControl required [(ngModel)]="currentLarderContainerItem.item.name" name="Przedmiotu">
@@ -34,6 +35,9 @@
   </mat-form-field>
 
   <button mat-raised-button color="warn" (click)="save()">Zapisz</button>
-</ng-container>
+</ng-template >
+<ng-template #noItem>
+  Brak Przedmiotu
+</ng-template>
 
 
