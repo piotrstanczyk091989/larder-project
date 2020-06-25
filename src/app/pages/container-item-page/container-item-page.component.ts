@@ -1,3 +1,4 @@
+import { ItemService } from './../../services/item.service';
 import { LarderItem } from './../../models/larder-item';
 import { Component, OnInit } from '@angular/core';
 import { Container } from '@angular/compiler/src/i18n/i18n_ast';
@@ -19,14 +20,19 @@ export class ContainerItemPageComponent implements OnInit {
   currentLarderItemName: string;
   currentLarderContainerItem: LarderItem;
   showErrorMessage: boolean = false;
+  itemOptions: Item[] = [];
+  expirationDate: Date;
+  manufactureDate: Date;
   larderContainerItemSavedSubscription: Subscription;
 
 
   constructor(private route: ActivatedRoute,
-              private  router: Router,
-              private  larderService: LarderService) { }
+              private router: Router,
+              private larderService: LarderService,
+              private itemService: ItemService) { }
 
   ngOnInit(): void {
+    this.itemOptions = this.itemService.getItems();
     this.larderName = this.route.snapshot.paramMap.get('larderName');
     this.containerName = this.route.snapshot.paramMap.get('containerName');
     this.currentLarderItemName = this.route.snapshot.paramMap.get('itemName');
@@ -34,10 +40,13 @@ export class ContainerItemPageComponent implements OnInit {
 
 
     if(this.currentLarderItemName){
-
-    // tslint:disable-next-line: max-line-length
-    this.currentLarderContainerItem =  this.larderService.getItemFromLarderContainerByName(this.larderName, [container], this.currentLarderItemName);
+      // tslint:disable-next-line: max-line-length
+      this.currentLarderContainerItem =  this.larderService.getItemFromLarderContainerByName(this.larderName, [container], this.currentLarderItemName);
+      this.expirationDate = this.currentLarderContainerItem.expirationDate;
+      this.manufactureDate = this.currentLarderContainerItem.manufactureDate;
     }else{
+      this.expirationDate = new Date();
+      this.manufactureDate = new Date();
       this.currentLarderContainerItem = new LarderItem();
       this.currentLarderContainerItem.item = new Item();
     }
@@ -48,7 +57,11 @@ export class ContainerItemPageComponent implements OnInit {
   save(){
     const currentLarderItemName = this.route.snapshot.paramMap.get('itemName');
     this.showErrorMessage = false;
+
+    this.setExpirationDate();
+    this.setManufactureDate();
     if (this.currentLarderContainerItem.item !== undefined && currentLarderItemName === this.currentLarderContainerItem.item.name){
+      this.router.navigate(['larder', this.larderName , 'container', this.containerName ]);
       return;
     }
 
@@ -56,14 +69,25 @@ export class ContainerItemPageComponent implements OnInit {
     this.larderContainerItemSavedSubscription.unsubscribe();
 
     if (result){
-      this.router.navigate(['larder', this.larderName , 'container', this.containerName , 'itemName', this.currentLarderContainerItem.item.name]);
+      //this.router.navigate(['larder', this.larderName , 'container', this.containerName , 'itemName', this.currentLarderContainerItem.item.name]);
+      this.router.navigate(['larder', this.larderName , 'container', this.containerName ]);
+
     }else{
       this.showErrorMessage = true;
     }
     });
+    //this.currentContainer = this.larderService.getContainer(this.larderName, [this.containerName]);
 
-    this.larderService.save();
+    this.larderService.saveItemInLarderContainer(this.larderName, this.containerName, this.currentLarderContainerItem );
 
+  }
+
+  setExpirationDate(){
+    this.currentLarderContainerItem.expirationDate = this.expirationDate;
+  }
+
+  setManufactureDate(){
+    this.currentLarderContainerItem.manufactureDate = this.manufactureDate;
   }
 
 }

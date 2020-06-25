@@ -2,18 +2,37 @@
 
 <h1>{{ larderName }} / {{containerName}} </h1>
 <ng-container *ngIf="currentLarderContainerItem">
-  <mat-form-field class="example-full-width">
-      <mat-label>Nazwa Itemu z {{ larderName }} </mat-label>
-      <input matInput placeholder="Nazwa Itemu" [(ngModel)]="currentLarderContainerItem.item.name">
+
+  <mat-form-field>
+    <mat-label>Nazwa Przedmiotu</mat-label>
+    <select matNativeControl required [(ngModel)]="currentLarderContainerItem.item.name" name="Przedmiotu">
+      <option *ngFor= "let currentItem of itemOptions" [ngValue]="currentItem.name">{{currentItem.name}}</option>
+    </select>
   </mat-form-field>
+
   <mat-form-field class="example-full-width">
-    <mat-label>Opis Itemu z {{ larderName }} </mat-label>
+    <mat-label>Opis Przedmiotu</mat-label>
     <input matInput placeholder="Description Itemu" [(ngModel)]="currentLarderContainerItem.item.description">
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <mat-label>Ilość Itemu z {{ larderName }} </mat-label>
-    <input matInput placeholder="Ilość " [(ngModel)]="currentLarderContainerItem.quantity">
+    <mat-label>Ilość Przedmiotu</mat-label>
+    <input matInput placeholder="Ilość"  type="number" [(ngModel)]="currentLarderContainerItem.quantity">
   </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Data ważności</mat-label>
+    <input matInput [matDatepicker]="myDatepickerE" [(ngModel)]="expirationDate">
+    <mat-datepicker-toggle matSuffix [for]="myDatepickerE"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepickerE></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Data produkcji</mat-label>
+    <input matInput [matDatepicker]="myDatepickerM" [(ngModel)]="manufactureDate">
+    <mat-datepicker-toggle matSuffix [for]="myDatepickerM"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepickerM></mat-datepicker>
+  </mat-form-field>
+
   <button mat-raised-button color="warn" (click)="save()">Zapisz</button>
 </ng-container>
 

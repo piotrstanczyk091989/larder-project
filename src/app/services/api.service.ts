@@ -41,25 +41,29 @@ export class ApiService {
               {
                 id: 3,
                 item:{name: "Pepsi", description: "2L"},
-                expirationDate: new Date(),
+                expirationDate: new Date("2021/07/04"),
+                manufactureDate: new Date("2020/02/02"),
                 quantity: 3
               },
               {
                 id: 4,
                 item:{name: "Woda Niegazowana", description: "Żywiec"},
-                expirationDate: new Date(),
+                expirationDate: new Date("2023/06/04"),
+                manufactureDate: new Date("2020/02/02"),
                 quantity: 12
               },
               {
                 id: 8,
                 item:{name: "Dżem", description: "Łowicz"},
-                expirationDate: new Date(),
+                expirationDate: new Date("2020/07/04"),
+                manufactureDate: new Date("2020/02/02"),
                 quantity: 2
               },
               {
                 id: 9,
                 item:{name: "Mleko", description: "Łaciate"},
-                expirationDate: new Date(),
+                expirationDate: new Date("2020/07/14"),
+                manufactureDate: new Date("2020/02/02"),
                 quantity: 4
               },
              ]
@@ -70,19 +74,22 @@ export class ApiService {
               {
                 id: 4,
                 item:{name: "Woda Niegazowana", description: "Żywiec"},
-                expirationDate: new Date(),
+                expirationDate: new Date("2022/06/04"),
+                manufactureDate: new Date("2020/02/02"),
                 quantity: 12
               },
               {
                 id: 9,
                 item:{name: "Mleko", description: "Łaciate"},
-                expirationDate: new Date(),
+                expirationDate: new Date("2020/07/04"),
+                manufactureDate: new Date("2020/02/02"),
                 quantity: 4
               },
               {
                 id: 8,
                 item:{name: "Dżem", description: "Łowicz"},
                 expirationDate: new Date(),
+                manufactureDate: new Date("2020/02/02"),
                 quantity: 2
               },
 
@@ -93,19 +100,22 @@ export class ApiService {
           {
             id: 1,
             item:{name: "Jogurt naturalny", description: "Zott Primo"},
-            expirationDate: new Date(),
+            expirationDate: new Date("2020/06/30"),
+            manufactureDate: new Date("2020/02/02"),
             quantity: 4
           },
           {
            id: 2,
            item:{name: "Masło Polskie", description: "Mlekovita"},
-           manufactureDate: new Date(),
+           expirationDate: new Date("2020/06/30"),
+           manufactureDate: new Date("2020/02/24"),
            quantity: 2
          },
          {
           id: 10,
           item:{name: "Kasza Gryczana", description: "Risana"},
-          manufactureDate: new Date(),
+          expirationDate: new Date("2020/06/30"),
+          manufactureDate: new Date("2020/02/02"),
           quantity: 2
         }
          ]
@@ -119,25 +129,29 @@ export class ApiService {
               {
                 id: 4,
                 item:{name: "Woda Niegazowana", description: "Żywiec"},
-                expirationDate: new Date(),
+                expirationDate: new Date("2021/06/04"),
+                manufactureDate: new Date("2020/02/02"),
                 quantity: 12
               },
               {
                 id: 5,
                 item:{name: "Makaron", description: "Lubella"},
-                expirationDate: new Date(),
+                expirationDate: new Date("2020/10/04"),
+                manufactureDate: new Date("2020/02/02"),
                 quantity: 3
               },
               {
                 id: 6,
                 item:{name: "Ryż", description: "Kupiec"},
-                expirationDate: new Date(),
+                expirationDate: new Date("2021/06/04"),
+                manufactureDate: new Date("2020/02/02"),
                 quantity: 5
               },
               {
                 id: 7,
                 item:{name: "Banany", description: ""},
-                expirationDate: new Date(),
+                expirationDate: new Date("2020/06/19"),
+                manufactureDate: new Date("2020/02/02"),
                 quantity: 5
               },
 

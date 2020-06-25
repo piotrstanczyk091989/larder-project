@@ -1,0 +1,78 @@
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      1.Cel projektu
+    </mat-panel-title>
+    <mat-panel-description>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p>Celem projektu było stworzenie aplikacji klienckiej umożliwiającej tworzenie spisu artykułów znajdujących się w przydomowej spiżarni.</p>
+</mat-expansion-panel>
+<mat-divider></mat-divider>
+<mat-divider></mat-divider>
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      2.Wymaganie projektowe
+    </mat-panel-title>
+    <mat-panel-description>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <h4>Struktura Danych</h4>
+      <p>System powinien się opierać na klasach języka Type Script serializowalnych do obiektów JSON. Główne klasy:</p>
+      <b>Larder:</b>
+      <ul>
+        <li>name: string – nazwa spiżarni.</li>
+        <li>containers: Container[] – lista pojemników, pułek, szafek.</li>
+        <li>items: LarderItem[] – lista przedmiotów nieprzyporząkowanych do pojemnika</li>
+      </ul>
+      <b>Container:</b>
+      <ul>
+        <li>name: string – nazwa pojemnika</li>
+        <li>containers: Container[] – lista wewnętrznych pojemników</li>
+        <li>items: LarderItem[] – lista przedmiotów przyporząkowanych do pojemnika</li>
+      </ul>
+      <b>LarderItem:</b>
+      <ul>
+        <li>id:number – numer identyfikujący przedmiot na danym poziomie spiżarni.</li>
+        <li>item: Item – artykuł</li>
+        <li>manufactureDate?: Data – data produkcji</li>
+        <li>quantity:number –liczba sztuk danego przedmiotu</li>
+      </ul>
+      <b>Item:</b>
+      <ul>
+        <li>name: string – nazwa artykułu</li>
+        <li>description:string – opis artykułu</li>
+      </ul>
+</mat-expansion-panel>
+<mat-divider></mat-divider>
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      3.Struktura Aplikacji
+    </mat-panel-title>
+    <mat-panel-description>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p>Użytkownik powinien mieć możliwość dodania i edycji całej spiżarni:</p>
+    <p>1. Ekran początkowy – zawierający listę spiżani. Kliknięcie w daną spiżarnię przenosi do Ekranu
+    spiżarni. Dodatkowo posiada opcję dodania nowej spiżarni.</p>
+    <p>2. Ekran listy przedmiotów – zawierający listę przedmiotów które możemy użyć w spiżarni.
+    Kliknięcie w przedmiot przenosi do Ekranu edycji przedmiotu podstawowego. Dodatkowo
+    posiada opcję dodania nowego przedmiotu.</p>
+    <p>3. Ekran spiżarni – zawierający listę kontenerów, oraz przedmiotów niepowiązanych z kontenerem.
+    Kliknięcie w przedmiot przenosi do Ekranu edycji przedmiotu w spiżarni, natomiast kliknięcie w
+    kontener przenosi do Ekranu kontenera. Dodatkowo posiada opcję dodania przedmiotu do
+    spiżarni oraz kontenera.</p>
+    <p>4. Ekran kontenera – zawierający listę kontenerów, oraz przedmiotów powiązanych z kontenerem.
+    Kliknięcie w przedmiot przenosi do Ekranu edycji przedmiotu w spiżarni, natomiast kliknięcie w
+    kontener przenosi do Ekranu kontenera. Dodatkowo posiada opcję dodania przedmiotu do
+    spiżarni oraz kontenera.</p>
+    <p>5. Ekran edycji/dodania przedmiotu w spiżarni – daje możliwość wyboru przedmiotu
+    podstawowego oraz uzypełnienie danych o dacie produkcji, przydatności do spożycia oraz liczby
+    sztuk.</p>
+    <p>6. Ekran edycji/dodania artykułu podstawowego – daje możliwość edycji nazwy oraz opisu
+    przedmiotu.</p>
+</mat-expansion-panel>
+<mat-divider></mat-divider>
+

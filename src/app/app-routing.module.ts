@@ -1,3 +1,4 @@
+import { DescProjectComponent } from './pages/desc-project/desc-project.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LardersPageComponent } from './pages/larders-page/larders-page.component';
@@ -7,9 +8,12 @@ import { LarderPageComponent } from './pages/larder-page/larder-page.component';
 import { ItemsPageComponent } from './pages/items-page/items-page.component';
 import { ItemPageComponent } from './pages/item-page/item-page.component';
 import { ContainerItemPageComponent } from './pages/container-item-page/container-item-page.component';
+import { HomeContentComponent } from './home-content/home-content.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'larders', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component:  HomeContentComponent },
+  { path: 'description', component:  DescProjectComponent },
   { path: 'larders', component:  LardersPageComponent },
   { path: 'larder/:larderName', component:  LarderPageComponent },
   { path: 'larder/:larderName/item/:itemName', component:  LarderItemPageComponent },

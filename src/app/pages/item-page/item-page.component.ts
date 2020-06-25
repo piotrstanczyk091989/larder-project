@@ -54,7 +54,7 @@ export class ItemPageComponent implements OnInit {
     }
     });
 
-    this.itemsService.save();
+    this.itemsService.save(this.currentItem);
 
   }
 

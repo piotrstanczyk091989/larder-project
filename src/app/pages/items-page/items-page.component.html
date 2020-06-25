@@ -1,12 +1,13 @@
+<div mat-subheader>Przedmiot
+    <button mat-mini-fab color="warn" routerLink="item">
+        <mat-icon>plus_one</mat-icon>
+    </button>
+</div>
+<mat-divider></mat-divider>
 <mat-list>
   <mat-list-item *ngFor="let item of itemsList">
       <mat-icon mat-list-icon>note</mat-icon>
       <div mat-line [routerLink]="['itemName', item.name]" >{{item.name}}</div>
   </mat-list-item>
 </mat-list>
-<mat-divider></mat-divider>
-<div mat-subheader>Przedmiot
-    <button mat-mini-fab color="warn" routerLink="item">
-        <mat-icon>plus_one</mat-icon>
-    </button>
-</div>
+

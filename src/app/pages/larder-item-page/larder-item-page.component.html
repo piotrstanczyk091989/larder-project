@@ -1,19 +1,38 @@
 
 <h1>{{ larderName }} </h1>
 <ng-container *ngIf="currentLaderItem">
-  <mat-form-field class="example-full-width">
-      <mat-label>Nazwa Itemu z {{ larderName }} </mat-label>
-      <input matInput placeholder="Nazwa Itemu" [(ngModel)]="currentLaderItem.item.name">
+
+  <mat-form-field>
+    <mat-label>Nazwa Przedmiotu</mat-label>
+    <select matNativeControl required [(ngModel)]="currentLaderItem.item.name" name="Przedmiotu">
+      <option *ngFor= "let currentItem of itemOptions" [ngValue]="currentItem.name">{{currentItem.name}}</option>
+    </select>
   </mat-form-field>
+
   <mat-form-field class="example-full-width">
     <mat-label>Opis Itemu z {{ larderName }} </mat-label>
     <input matInput placeholder="Description Itemu" [(ngModel)]="currentLaderItem.item.description">
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <mat-label>Ilość Itemu z {{ larderName }} </mat-label>
-    <input matInput placeholder="Ilość " [(ngModel)]="currentLaderItem.quantity">
+    <input matInput placeholder="Ilość " type="number" [(ngModel)]="currentLaderItem.quantity">
   </mat-form-field>
-  <button mat-raised-button color="warn"(click)="save()">Zapisz</button>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Data ważności</mat-label>
+    <input matInput [matDatepicker]="myDatepickerE" [(ngModel)]="expirationDate">
+    <mat-datepicker-toggle matSuffix [for]="myDatepickerE"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepickerE></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Data produkcji</mat-label>
+    <input matInput [matDatepicker]="myDatepickerM" [(ngModel)]="manufactureDate">
+    <mat-datepicker-toggle matSuffix [for]="myDatepickerM"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepickerM></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-raised-button color="warn" (click)="save()">Zapisz</button>
 </ng-container>
 
 

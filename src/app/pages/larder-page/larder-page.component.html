@@ -19,7 +19,8 @@
         <mat-list-item *ngFor="let laderItem of larder.items" [routerLink]="['item', laderItem.item.name]">
             <mat-icon mat-list-icon>note</mat-icon>
             <div mat-line>{{laderItem.item.name}}</div>
-            <div mat-line>{{laderItem.quantity}}</div>
+            <div mat-line>Ilość: {{laderItem.quantity}}</div>
+            <div mat-line>Data Ważności: {{laderItem.expirationDate | date:"MM/dd/yyyy"}}</div>
         </mat-list-item>
     </mat-list>
 </ng-container>

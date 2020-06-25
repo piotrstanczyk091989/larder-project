@@ -5,24 +5,22 @@
             <input matInput placeholder="Nazwa Kontenera" [(ngModel)]="currentContainer.name">
         </mat-form-field>
     </h1>
-
     <ng-container *ngIf="showErrorMessage">
         <mat-divider></mat-divider>
             Nie udało się zapisać kontenera.
         <mat-divider></mat-divider>
     </ng-container>
-
     <mat-list>
-
-        <div *ngIf="currentContainer.name" mat-subheader>Przedmioty
+        <div *ngIf="newContenerFlag" mat-subheader>Przedmioty
             <button mat-mini-fab color="warn" routerLink="itemName">
                 <mat-icon>plus_one</mat-icon>
             </button>
         </div>
         <mat-list-item *ngFor="let laderItem of currentContainer.items" [routerLink]="['itemName', laderItem.item.name]">
             <mat-icon mat-list-icon>note</mat-icon>
-            <div mat-line  >{{laderItem.item.name}}</div>
-            <div mat-line>{{laderItem.quantity}}</div>
+            <div mat-line>{{laderItem.item.name}}</div>
+            <div mat-line>Ilość: {{laderItem.quantity}}</div>
+            <div mat-line>Data Ważności: {{laderItem.expirationDate | date:"MM/dd/yyyy"}}</div>
         </mat-list-item>
     </mat-list>
     <button mat-raised-button color="warn" (click)="save()">Zapisz</button>

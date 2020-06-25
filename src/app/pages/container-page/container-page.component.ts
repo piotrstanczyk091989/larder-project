@@ -15,6 +15,7 @@ export class ContainerPageComponent implements OnInit /*, OnDestroy { */ {
   larderName: string;
   showErrorMessage: boolean = false;
   larderSavedSubscription: Subscription;
+  newContenerFlag: boolean;
 
   constructor(private route: ActivatedRoute,
               private  router: Router,
@@ -24,8 +25,10 @@ export class ContainerPageComponent implements OnInit /*, OnDestroy { */ {
     this.larderName = this.route.snapshot.paramMap.get('larderName');
     const containerName = this.route.snapshot.paramMap.get('containerName');
     if (containerName){
+      this.newContenerFlag = true;
       this.currentContainer = this.larderService.getContainer(this.larderName, [containerName]);
     }else{
+      this.newContenerFlag = false;
       this.currentContainer = new Container();
     }
 
@@ -39,6 +42,7 @@ export class ContainerPageComponent implements OnInit /*, OnDestroy { */ {
     const containerName = this.route.snapshot.paramMap.get('containerName');
     this.showErrorMessage = false;
     if (containerName === this.currentContainer.name){
+      this.router.navigate(['larder', this.larderName]);
       return;
     }
 
@@ -46,14 +50,16 @@ export class ContainerPageComponent implements OnInit /*, OnDestroy { */ {
     this.larderSavedSubscription.unsubscribe();
 
     if (result){
-      this.router.navigate(['larder', this.larderName, 'container', this.currentContainer.name])
+      //this.router.navigate(['larder', this.larderName, 'container', this.currentContainer.name]);
+      this.router.navigate(['larder', this.larderName]);
     }else{
       this.showErrorMessage = true;
     }
     });
 
-    this.larderService.save();
-
+    if (!containerName){
+      this.larderService.saveContainerInLarder(this.larderName, this.currentContainer);
+    }
   }
 
 }

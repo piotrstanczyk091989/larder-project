@@ -1,19 +1,16 @@
-<!-- <p>item-page works!</p> -->
 <ng-container *ngIf="currentItem">
 <h1>{{ larderName }} </h1>
 <mat-form-field class="example-full-width">
-    <mat-label>Nazwa Itemu z {{ larderName }} </mat-label>
-    <input matInput placeholder="Nazwa Itemu" [(ngModel)]="currentItem.name">
+    <mat-label>Nazwa Przedmiotu </mat-label>
+    <input matInput required placeholder="Nazwa Itemu" [(ngModel)]="currentItem.name">
 </mat-form-field>
-
     <ng-container *ngIf="showErrorMessage">
         <mat-divider></mat-divider>
             Nie udało się zapisać item.
         <mat-divider></mat-divider>
     </ng-container>
-
 <mat-form-field class="example-full-width">
-  <mat-label>Opis Itemu z {{ larderName }} </mat-label>
+<mat-label>Opis Przedmiotu </mat-label>
   <input matInput placeholder="Description Itemu" [(ngModel)]="currentItem.description">
 </mat-form-field>
 <button mat-raised-button color="warn" (click)="save()">Zapisz</button>

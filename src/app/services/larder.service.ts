@@ -27,6 +27,37 @@ export class LarderService {
     });
   }
 
+  saveItemInLarderContainer(larderName: string, containerName: string, currentItem: LarderItem ){
+    this.api.saveLarders(this.larders).subscribe(() => {
+      this.larderSaved.emit(true);
+      (this.getContainer(larderName, [containerName])).items.push(currentItem);
+    },
+    () => {
+      this.larderSaved.emit(false);
+    });
+  }
+
+  saveContainerInLarder(larderName: string, currentContainer: Container){
+    this.api.saveLarders(this.larders).subscribe(() => {
+      this.larderSaved.emit(true);
+      this.getLarder(larderName).containers.push(currentContainer);
+    },
+    () => {
+      this.larderSaved.emit(false);
+    });
+  }
+
+  saveItemInLarder(larderName: string, larderItem: LarderItem){
+    this.api.saveLarders(this.larders).subscribe(() => {
+      this.larderSaved.emit(true);
+      this.getLarder(larderName).items.push(larderItem);
+    },
+    () => {
+      this.larderSaved.emit(false);
+    });
+  }
+
+
   getLarders(){
     return this.larders;
   }

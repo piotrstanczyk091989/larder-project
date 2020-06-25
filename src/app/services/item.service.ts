@@ -23,6 +23,10 @@ export class ItemService {
     return this.items;
   }
 
+  addItem(item: Item){
+    this.items.push(item);
+  }
+
   setItems(items: Item[]){
     this.items = items;
   }
@@ -32,8 +36,9 @@ export class ItemService {
     return currentItem;
   }
 
-  save(){
+  save(item: Item){
     this.api.saveItems(this.items).subscribe(() => {
+      this.addItem(item);
       this.itemSaved.emit(true);
     },
     () => {
